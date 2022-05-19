@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reg_styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap" rel="stylesheet">
+    <title>Registration</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>WELCOME TO DYLAN_COURTNEY.COM!</h1>
+
+      <h2>Registration Page</h2>
+
+      <form id="myForm" action="/login.html">
+        <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        label="firstName"
+        placeholder="Enter your First Name"
+        minlength="3"
+        required
+        />
+
+        <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        label="lastName"
+        placeholder="Enter your Last Name"
+        minlength="3"
+        required
+        />
+
+        <input
+        type="text"
+        id="age"
+        name="age"
+        label="age"
+        placeholder="Enter your Age"
+        />
+
+        <select aria-label="sex" id="sex-select" name="sex-select">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+       </select>
+
+        <input
+        type="text"
+        id="username"
+        name="username"
+        label="username"
+        placeholder="Enter your Username"
+        required
+      />
+
+        <input
+        type="password"
+        id="password"
+        name="password"
+        label="password"
+        placeholder="Enter your Password"
+        maxlength="16"
+        required
+      />
+
+        <input class="buttons" type="submit" id="submit" value="Submit"/>
+      </form>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("myForm").addEventListener("submit", register);
+      });
+
+      function register(ev) {
+        let myForm = ev.target;
+        let user = new FormData(myForm);
+
+        //look at all the contents
+        for (let key of user.keys()) {
+          console.log(key, user.get(key));
+          sessionStorage.setItem(key, user.get(key));
+        }
+      }
+
+    </script>
+  </body>
+</html>

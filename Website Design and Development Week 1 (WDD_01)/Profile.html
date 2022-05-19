@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <title>Dylan_Courtney</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <img class="logo" src="/images/Self.JPG" alt="logo" />
+
+        <nav>
+          <ul class="navLinks">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Profile.html">Profile</a></li>
+            <li><a href="Registration.html">Registration</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <h1>Welcome to Dylan_Courtney.com</h1>
+
+      <h3>Profile page</h3>
+
+      <img class="profilePic" src="/images/Self.JPG" alt="Dylan" />
+
+      <div>
+        <form class="infoForm">
+          <label for="username">Username:</label>
+          <input id="username" type="text" value="" readonly>
+          
+          <label for="firstName">Name:</label>
+          <input id="firstName" type="text" value="" readonly>
+          
+          <label for="age">Age:</label>
+          <input id="age" type="text" value="" readonly>
+          
+          <label for="gender">Gender:</label>
+          <input id="gender" type="text" value="" readonly>
+        </form>
+      </div>
+    </div>
+    <footer>
+      <h5>
+        Created on May 2022, by <a href="Home.html">Dylan_Courtney.com</a>
+      </h5>
+    </footer>
+    <script>
+      const username = document.getElementById('username');
+      username.value = localStorage.getItem("username");
+      
+      const firstName = document.getElementById('firstName');
+      firstName.value = sessionStorage.getItem("firstName");
+      
+      const age = document.getElementById('age');
+      age.value = sessionStorage.getItem("age");
+      
+      const gender = document.getElementById('gender');
+      gender.value = sessionStorage.getItem("sex-select");
+    </script>
+  </body>
+</html>

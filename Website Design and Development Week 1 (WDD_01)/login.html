@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reg_styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap"
+      rel="stylesheet"
+    />
+    <title>Login</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>WELCOME TO DYLAN_COURTNEY.COM!</h1>
+
+      <h2>Login Page</h2>
+
+      <form id="myForm">
+        <input
+          type="text"
+          id="username"
+          name="username"
+          label="username"
+          placeholder="Enter your Username"
+          required
+        />
+
+        <input
+          type="password"
+          id="password"
+          name="password"
+          label="password"
+          placeholder="Enter your Password"
+          maxlength="16"
+          required
+        />
+
+        <input class="buttons" type="submit" id="login-button" value="Login" />
+        <a href="/Registration.html"><button type="button" class="buttons" id="register-button">
+          Register
+        </button></a>
+      </form>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document
+          .getElementById("myForm")
+          .addEventListener("submit", validateCredentials);
+      });
+
+      function validateCredentials(ev) {
+        ev.preventDefault();
+        let myForm = ev.target;
+        let user = new FormData(myForm);
+
+        for (let key of user.keys()) {
+          console.log(key, user.get(key));
+          localStorage.setItem(key, user.get(key));
+        }
+
+        let username = user.get("username");
+        let password = user.get("password");
+
+        let storedUsername = localStorage.getItem("username");
+        let storedPassword = localStorage.getItem("password");
+
+        if (username === storedUsername) {
+          if (password === storedPassword) {
+            authenticated = true;
+            alert("Access Granted");
+            document.location.href = "/Home.html";
+          } else {
+            //Display incorrect password.
+            alert("Invalid username and password");
+          }
+        } else {
+          alert("Invalid username and password");
+          document.location.href = "/Registration.html";
+        }
+      }
+    </script>
+  </body>
+</html>
